@@ -33,6 +33,10 @@ public class Steal extends BaseCommand {
                 break;
             case "sticker":
                 MessageCreateBuilder builder = new MessageCreateBuilder();
+                if (event.getMessage().getStickers().isEmpty()) {
+                    event.getMessage().reply("No sticker provided").queue();
+                    return;
+                }
                 event.getMessage().getStickers().forEach((v) -> {
                     builder.addContent(v.getIcon().getUrl());
                 });

@@ -29,7 +29,7 @@ public class Main {
                 .setTicket_category("1305853546595618897")
                 .setTicket_channel_id("1305853637435850793")
                 .setTicketLog("1305864541720154153");
-        final String token = BotToken.DEVELOPMENT.toString();
+        final String token = UniversalToken.Bot_PRODUCTION;
         Client client = new Client(token, args);
         client.addEventListeners(commandManager);
         client.addEventListeners(new CacheManager());
