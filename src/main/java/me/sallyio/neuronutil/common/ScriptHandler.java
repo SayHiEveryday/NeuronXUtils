@@ -6,9 +6,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 public class ScriptHandler {
     private final File file;
@@ -35,7 +33,6 @@ public class ScriptHandler {
         }
     }
 
-    // Save data to the file
     private void saveData() {
         try {
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(file, dataStore);
@@ -44,7 +41,6 @@ public class ScriptHandler {
         }
     }
 
-    // Add or update a key with availability and data
     public void putEntry(String key, boolean available, String data) {
         ObjectNode entry = objectMapper.createObjectNode();
         entry.put("available", available);
@@ -53,22 +49,19 @@ public class ScriptHandler {
         saveData();
     }
 
-    // Remove a key
     public void removeEntry(String key) {
         dataStore.remove(key);
         saveData();
     }
 
-    // Retrieve an entry as a JsonNode (you can then get specific fields from it)
     public JsonNode getEntry(String key) {
         return dataStore.get(key);
     }
 
-    // Check if a key exists
     public boolean containsKey(String key) {
         return dataStore.has(key);
     }
-    // Update only the availability status for a specific key
+
     public void updateAvailability(String key, boolean available) {
         JsonNode entry = dataStore.get(key);
         if (entry != null && entry.isObject()) {
@@ -77,7 +70,6 @@ public class ScriptHandler {
         }
     }
 
-    // Update only the data field for a specific key
     public void updateScript(String key, String newData) {
         JsonNode entry = dataStore.get(key);
         if (entry != null && entry.isObject()) {

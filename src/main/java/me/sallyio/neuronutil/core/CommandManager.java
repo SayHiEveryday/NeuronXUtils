@@ -94,10 +94,7 @@ public class CommandManager extends ListenerAdapter {
         String cmdName = args[0].replace(this.prefix, "");
         BaseCommand cmd = this.commandMap.get(cmdName);
 
-        if (cmd == null) {
-            event.getMessage().reply("Command `" + cmdName + "` not found").queue();
-            return;
-        }
+        if (cmd == null) return;
 
         if (!this.isAbleToExecute(cmd, event)) {
             event.getMessage().reply("You are not allowed to use this command!").queue();

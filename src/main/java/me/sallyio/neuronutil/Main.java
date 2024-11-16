@@ -3,12 +3,9 @@ package me.sallyio.neuronutil;
 import me.sallyio.neuronutil.commands.*;
 import me.sallyio.neuronutil.commands.admin.*;
 import me.sallyio.neuronutil.commands.misc.*;
-import me.sallyio.neuronutil.core.CacheManager;
-import me.sallyio.neuronutil.core.Client;
-import me.sallyio.neuronutil.core.CommandManager;
+import me.sallyio.neuronutil.core.*;
 import me.sallyio.neuronutil.common.*;
 
-import me.sallyio.neuronutil.core.TicketManager;
 import net.dv8tion.jda.api.JDA;
 
 public class Main {
@@ -34,6 +31,7 @@ public class Main {
         client.addEventListeners(commandManager);
         client.addEventListeners(new CacheManager());
         client.addEventListeners(new ReplierHandler());
+        client.addEventListeners(new ScriptManager());
         client.addEventListeners(ticketManager);
         JDA jda = client.start();
         jda.awaitReady();

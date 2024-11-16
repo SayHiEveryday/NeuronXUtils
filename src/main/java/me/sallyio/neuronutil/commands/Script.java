@@ -13,10 +13,11 @@ public class Script extends BaseCommand {
         this
                 .setName("script")
                 .setDescription("Get your script");
-        OptionData data = new OptionData(OptionType.STRING, "script", "search script", true);
-        new ScriptHandler("ScriptData.json").getAllKeys().forEach(i -> {
-            data.addChoice(i,i);
-        });
+        OptionData data = new OptionData(OptionType.STRING, "script", "search script", true)
+                .setAutoComplete(true);
+//        new ScriptHandler("ScriptData.json").getAllKeys().forEach(i -> {
+//            data.addChoice(i,i);
+//        });
         this.addOption(data);
     }
 
