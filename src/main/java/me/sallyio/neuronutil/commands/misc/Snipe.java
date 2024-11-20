@@ -1,7 +1,7 @@
 package me.sallyio.neuronutil.commands.misc;
 
 import me.sallyio.neuronutil.entities.BaseCommand;
-import me.sallyio.neuronutil.entities.DeleteMessageCache;
+import me.sallyio.neuronutil.entities.cache.DeleteMessageCache;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
@@ -56,7 +56,7 @@ public class Snipe extends BaseCommand {
     }
 
     @Override
-    public void executeSlash(SlashCommandInteractionEvent event) {
+    public void executeSlash(@NotNull SlashCommandInteractionEvent event) {
         try {
             DeleteMessageCache cache = DeleteMessageCache.getInstance();
             Message message = cache.get(event.getChannel().getId());

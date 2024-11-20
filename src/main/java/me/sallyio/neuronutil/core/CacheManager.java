@@ -1,7 +1,7 @@
 package me.sallyio.neuronutil.core;
 
-import me.sallyio.neuronutil.entities.DeleteMessageCache;
-import me.sallyio.neuronutil.entities.MessageCache;
+import me.sallyio.neuronutil.entities.cache.DeleteMessageCache;
+import me.sallyio.neuronutil.entities.cache.MessageCache;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.message.MessageDeleteEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;

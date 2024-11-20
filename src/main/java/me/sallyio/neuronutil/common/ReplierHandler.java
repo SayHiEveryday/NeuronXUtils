@@ -11,8 +11,8 @@ public class ReplierHandler extends ListenerAdapter {
             event.getMessage().reply("Please read rule <#1273163664387739710> No.17\nOr you can use `/script` to get script").queue();
             return;
         } else
-        if (content.contains("give") && content.contains("script")) {
-            event.getMessage().reply("Try `/script`!\nNote that most script is in the main loader.").queue();
+        if ((content.contains("send") || content.contains("give")) && content.contains("script")) {
+            event.getMessage().reply("Try </script:1303337755388022856>!\nNote that most script is in the main loader.").queue();
             return;
         }
     }
